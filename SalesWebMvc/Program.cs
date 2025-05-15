@@ -1,10 +1,12 @@
 ﻿using System.Configuration;
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using SalesWebMvc.Data;
 using SalesWebMvc.Services;
+using Microsoft.AspNetCore.Localization;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SalesWebMvcContext>(options =>
@@ -21,6 +23,10 @@ builder.Services.AddControllersWithViews();
 var app = builder.Build();
 var scope = app.Services.CreateScope();
 var seedingService = scope.ServiceProvider.GetRequiredService<SeedingService>();
+
+var defaultCulture = new CultureInfo("en-US");
+CultureInfo.DefaultThreadCurrentCulture = defaultCulture;
+CultureInfo.DefaultThreadCurrentUICulture = defaultCulture;
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
