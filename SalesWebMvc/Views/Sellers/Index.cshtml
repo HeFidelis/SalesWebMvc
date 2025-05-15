@@ -5,6 +5,10 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<p>
+	<a asp-action="Create" class="btn btn-success">Create new</a>
+</p>
+
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>
@@ -21,10 +25,10 @@
 				@Html.DisplayNameFor(model => model.Email)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.birthDate)
+				@Html.DisplayNameFor(model => model.BirthDate)
 			</th>
 			<th>
-				@Html.DisplayNameFor(model => model.baseSalary)
+				@Html.DisplayNameFor(model => model.BaseSalary)
 			</th>
 			<th></th>
 		</tr>
@@ -40,10 +44,10 @@
 					@Html.DisplayFor(modelItem => item.Email)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.birthDate)
+					@Html.DisplayFor(modelItem => item.BirthDate)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.baseSalary)
+					@Html.DisplayFor(modelItem => item.BaseSalary)
 				</td>
 				<td>
 					<a asp-action="Edit" asp-rout-id="@item.Id">Edit</a>
